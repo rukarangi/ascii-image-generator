@@ -53,7 +53,9 @@ fn main() {
         //println!("{:?}", pixel);
         //println!("Pixel {:?}", pixel);
         if y % y_modifier == 0 && x % x_modifier == 0 {
-            result_before.push(filters::grayscale_basic(average));
+            let chara = filters::grayscale_detailed(average);
+            result_before.push(chara);
+            //println!("{} result: {}", average, chara);
         }
         if x == img.dimensions().0 -1 {
             result_before.push_str("\n");
