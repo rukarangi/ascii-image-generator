@@ -23,12 +23,14 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     println!("{:?}", args);
     let mut target_path = Path::new(&args[1]);
+    let x_modifier = &args[2].parse::<u32>().unwrap();
+    let y_modifier = &args[3].parse::<u32>().unwrap();
     //target_path = String::from("dot_test.jpg");
 
     // --- Create Access to Output file ---
 
     // create path
-    let path = Path::new("test.txt");
+    let path = Path::new("out/output.txt");
     let display = path.display();
 
     // open file in write-only
@@ -59,7 +61,7 @@ fn main() {
         let average = (r + g + b) / 3;
         //println!("{:?}", pixel);
         //println!("Pixel {:?}", pixel);
-        if y % 6 == 0 && x % 3 == 0 {
+        if y % y_modifier == 0 && x % x_modifier == 0 {
             if average < 25 {
                 result.push_str(grayscale[0]);
             } else if average < 50 {
