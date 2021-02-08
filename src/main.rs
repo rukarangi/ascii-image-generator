@@ -20,8 +20,9 @@ fn main() {
     // ascii_map.insert(k: K, v: V)
 
     // --- Take Arguments ---
-    let _args: Vec<String> = env::args().collect();
-    let mut _target_path = Path::new("dot_test.jpg");
+    let args: Vec<String> = env::args().collect();
+    println!("{:?}", args);
+    let mut target_path = Path::new(&args[1]);
     //target_path = String::from("dot_test.jpg");
 
     // --- Create Access to Output file ---
@@ -43,7 +44,7 @@ fn main() {
     // }
 
     // --- Open Image and get byte Vec ---
-    let img = image::open(Path::new("data/gradient.png")).unwrap();
+    let img = image::open(Path::new(target_path)).unwrap();
 
     println!("dimensions {:?}", img.dimensions().0);
 
@@ -54,10 +55,11 @@ fn main() {
     for pixel in img.pixels() {
         let (x, y) = (pixel.0, pixel.1);
         let _brightness = pixel.2.0[3];
-        let average = pixel.2.0[0];
+        let (r, g, b): (u32, u32, u32) = (pixel.2.0[0].into(), pixel.2.0[1].into(), pixel.2.0[2].into());
+        let average = (r + g + b) / 3;
         //println!("{:?}", pixel);
         //println!("Pixel {:?}", pixel);
-        if y % 3 == 0 && x % 2 == 0 {
+        if y % 6 == 0 && x % 3 == 0 {
             if average < 25 {
                 result.push_str(grayscale[0]);
             } else if average < 50 {
@@ -93,7 +95,22 @@ fn main() {
         // }
     }
 
-    match file.write_all(result.as_bytes()) {
+    // --- Re Format result to not include blank line ---
+    
+    let mut result_final = String::from("");
+    let mut last_char: char = ' ';
+
+    for c in result.chars() {
+        if c == last_char && c == '\n' {
+            //result_final.push('');
+        } else {
+            result_final.push(c);
+        }
+
+        last_char = c;
+    }
+
+    match file.write_all(result_final.as_bytes()) {
         Err(why) => panic!("Couldn't write to {}: {}", display, why),
         Ok(_) => println!("Wrote File"),
     }
