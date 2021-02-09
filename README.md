@@ -24,7 +24,11 @@ This Rust application should be able to convert a PNG or JPG image into ascii te
 
 ### Usage
 ```
-cargo run input.png/jpg output.txt x_modifier y_modifier
+cargo run input.png/jpg output.txt x_modifier y_modifier filter reverse_toggle
+```
+eg.
+```
+cargo run data/chrome-512.png out/testing.txt 5 10 red_basic 0
 ```
 
 ### Plan
