@@ -1,3 +1,5 @@
+# ignores for the rust crate
+
 /rust-module/target
 /rust-module/out
 
@@ -5,6 +7,7 @@ frontend/.DS_Store
 frontend/node_modules
 frontend//dist
 
+# ignores for the frontend
 
 # local env files
 frontend/.env.local
