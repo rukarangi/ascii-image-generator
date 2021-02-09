@@ -18,6 +18,13 @@ fn main() {
     let out_path = Path::new(&args[2]);
     let x_modifier = &args[3].parse::<u32>().unwrap();
     let y_modifier = &args[4].parse::<u32>().unwrap();
+    let reverse_input = &args[5].parse::<i32>().unwrap();
+    let reverse: bool;
+    if *reverse_input == 1 {
+        reverse = true;
+    } else {
+        reverse = false;
+    }
 
     // --- Create Access to Output file ---
 
@@ -53,7 +60,7 @@ fn main() {
         //println!("{:?}", pixel);
         //println!("Pixel {:?}", pixel);
         if y % y_modifier == 0 && x % x_modifier == 0 {
-            let chara = filters::grayscale_detailed(average);
+            let chara = filters::grayscale_detailed(average, reverse);
             result_before.push(chara);
             //println!("{} result: {}", average, chara);
         }
