@@ -7,6 +7,16 @@ frontend/.DS_Store
 frontend/node_modules
 frontend//dist
 
+# ignores for test wasm
+wasm-learning/target
+wasm-learning/**/*.rs.bk
+wasm-learning/Cargo.lock
+wasm-learning/bin/
+wasm-learning/pkg/
+wasm-learning/wasm-pack.log
+wasm-learning/www/.bin/node_modules
+wasm-learning/www/.bin/dist
+
 # ignores for the frontend
 
 # local env files
