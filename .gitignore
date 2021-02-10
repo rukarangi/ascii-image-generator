@@ -7,7 +7,7 @@ frontend/.DS_Store
 frontend/node_modules
 frontend//dist
 
-wasm-conversion/target/
+wasm-conversion/target
 wasm-conversion/**/*.rs.bk
 wasm-conversion/Cargo.lock
 wasm-conversion/bin/
