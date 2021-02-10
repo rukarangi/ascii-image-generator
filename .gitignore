@@ -7,8 +7,17 @@ frontend/.DS_Store
 frontend/node_modules
 frontend//dist
 
+wasm-conversion/target/
+wasm-conversion/**/*.rs.bk
+wasm-conversion/Cargo.lock
+wasm-conversion/bin/
+wasm-conversion/pkg/
+wasm-conversion/wasm-pack.log
+wasm-conversion/www/.bin/node_modules
+wasm-conversion/www/.bin/dist
+
 # ignores for test wasm
-wasm-learning/target
+wasm-learning/target/
 wasm-learning/**/*.rs.bk
 wasm-learning/Cargo.lock
 wasm-learning/bin/

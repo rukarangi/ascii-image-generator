@@ -3,7 +3,8 @@
   </div>
 </template>
 
-<script>export default {
+<script>
+export default {
   name: 'Home'
 }
 </script>
