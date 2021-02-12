@@ -1,5 +1,7 @@
 # ignores for the rust crate
 
+target/
+
 /rust-module/target
 /rust-module/out
 

@@ -51,7 +51,7 @@ pub fn grayscale_detailed(rgb: (f64, f64, f64), reverse: bool) -> char {
     return filter(average, grayscale);
 }
 
-pub fn red_basic(rgb: (f64, f64, f64), reverse: bool) -> char {
+pub fn redgreen_basic(rgb: (f64, f64, f64), reverse: bool) -> char {
     let grayscale_default: Vec<char> = vec![' ','.',':','-','=','+','*','#','%','@'];
     let grayscale: Vec<char>;
 

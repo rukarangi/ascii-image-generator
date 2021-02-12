@@ -66,7 +66,7 @@ fn main() {
             match filter_input {
                 "gray-basic" => chara = filters::grayscale_basic((r, g, b), reverse),
                 "gray-detailed" => chara = filters::grayscale_detailed((r, g, b), reverse),
-                "red-basic" => chara = filters::red_basic((r, g, b), reverse),
+                "redgreen-basic" => chara = filters::redgreen_basic((r, g, b), reverse),
                 _ => panic!("Filter {} does not exist", filter_input)
             };
 
