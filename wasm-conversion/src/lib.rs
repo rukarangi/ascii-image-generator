@@ -16,7 +16,7 @@ extern {
     fn alert(s: &str);
     
     #[wasm_bindgen(js_namespace = console)]
-    fn log(s: wasm_bindgen::JsValue);
+    fn log(s: &str);
 }
 
 #[wasm_bindgen]
@@ -40,19 +40,33 @@ impl Converter {
 
     pub fn read_to_arraybuffer(&mut self) {
         match self.file_reader.read_as_array_buffer(&self.blob) {
-            Err(e) => log(e),
+            Err(e) => {
+                let error;
+                match wasm_bindgen::JsValue::as_string(&e) {
+                    Some(s) => error = s,
+                    None => error = "".to_string(),
+                }
+                log(&*error)
+            },
             Ok(_) => self.ready = true,
         }
 
         self.log_out();
 
         match self.file_reader.result() {
-            Err(e) => log(e),
+            Err(e) => {
+                let error;
+                match wasm_bindgen::JsValue::as_string(&e) {
+                    Some(s) => error = s,
+                    None => error = "".to_string(),
+                }
+                log(&*error)
+            },
             Ok(a) => self.file.content = a,
         }
     }
 
     pub fn log_out(&self) {
-        log(self.ready.into());
+        log(&*format!("{}", self.ready));
     }
 }

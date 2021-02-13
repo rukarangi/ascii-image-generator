@@ -1,4 +1,4 @@
-const __converter = require("../pkg/wasm_ascii_maker.js")
+const __converter = require("wasm-ascii-maker")
 
 const Converter = __converter.Converter
 

@@ -1,6 +1,6 @@
 [package]
 name = "wasm-ascii-maker"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Luke Thompson <luke@yorkbay.net.nz>"]
 edition = "2018"
 
